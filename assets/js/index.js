@@ -38,7 +38,7 @@ todo.addEventListener("keyup", e => {
 
   switch (e.keyCode) {
     case 13:
-      if (text.length > 10) {
+      if (text.length > 5) {
         error.innerHTML = "";
         error.style.display = "none";
         todos.push({
