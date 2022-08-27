@@ -10,21 +10,17 @@
   <body>
     <section>
       <div class="container">
-        <form action="#">
+        <div class="form">
           <input
             type="text"
             name="todo"
             id="todo"
             placeholder="My tasks for today"
+            autocomplete="off"
           />
-          <div class="error">Please fill task</div>
-        </form>
-        <div class="todos">
-          <div class="todo">
-            <p>Lorem ipsum dolor sit</p>
-            <input type="checkbox" class="done" />
-          </div>
+          <div id="error"></div>
         </div>
+        <div id="todos"></div>
       </div>
     </section>
 
