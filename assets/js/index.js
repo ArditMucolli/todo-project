@@ -1,6 +1,14 @@
-let todos = [];
+let todos = getTodosFromLS();
 const todos_div = document.getElementById("todos");
 const error = document.getElementById("error");
+
+function getTodosFromLS() {
+  return JSON.parse(localStorage.getItem("todos") || "[]");
+}
+
+function updateStorage(todos) {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
 
 function updateStatus(id) {
   todos = [
@@ -13,11 +21,13 @@ function updateStatus(id) {
       }
     }),
   ];
+  updateStorage(todos);
   todos_div.innerHTML = displayTodos(todos);
 }
 
 function displayTodos(todos) {
   let todos_html = "";
+
   todos.forEach((todo, index) => {
     todos_html += `
     <div class="todo">
@@ -46,6 +56,7 @@ todo.addEventListener("keyup", e => {
           status: false,
         });
         e.target.value = "";
+        updateStorage(todos);
         todos_div.innerHTML = displayTodos(todos);
       } else {
         error.innerHTML = "Teksti shum i shkurter...";
@@ -54,3 +65,5 @@ todo.addEventListener("keyup", e => {
       break;
   }
 });
+
+todos_div.innerHTML = displayTodos(todos);
