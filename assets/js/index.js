@@ -59,7 +59,7 @@ todo.addEventListener("keyup", e => {
         updateStorage(todos);
         todos_div.innerHTML = displayTodos(todos);
       } else {
-        error.innerHTML = "Teksti shum i shkurter...";
+        error.innerHTML = "text is not long enough...";
         error.style.display = "block";
       }
       break;
